@@ -1,3 +1,5 @@
+import os
+
 from django.core.management.base import BaseCommand
 from django.contrib.auth import get_user_model
 from django.conf import settings
@@ -8,7 +10,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         if not User.objects.filter(username='your_name').exists():
             User.objects.create_superuser(
-                username='swallowtail',
+                username=os.eviron.get('SUPERUSER_NAME'),
                 email='',
-                password='aaa'
+                password=os.eviron.get('SUPERUSER_PASS')
             )
