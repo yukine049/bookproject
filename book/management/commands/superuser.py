@@ -10,7 +10,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         if not User.objects.filter(username='your_name').exists():
             User.objects.create_superuser(
-                username=os.eviron.get('SUPERUSER_NAME'),
+                username=os.environ.get('SUPERUSER_NAME'),
                 email='',
-                password=os.eviron.get('SUPERUSER_PASS')
+                password=os.environ.get('SUPERUSER_PASS')
             )
